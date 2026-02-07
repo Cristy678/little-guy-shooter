@@ -59,6 +59,11 @@ position = Vector2(286, 578)
 scale = Vector2(3, 3)
 texture = ExtResource("6_o6wi6")
 
+[node name="HudBase2" type="Sprite2D" parent="UIscreen" unique_id=108313635]
+position = Vector2(70, 578)
+scale = Vector2(3, 3)
+texture = ExtResource("7_emj6c")
+
 [node name="AmmoHUD" type="Label" parent="UIscreen" unique_id=1582704243]
 offset_left = 95.0
 offset_top = 604.0
@@ -78,7 +83,24 @@ offset_bottom = 641.0
 theme_override_font_sizes/font_size = 40
 text = "LOADAMMO"
 
-[node name="HudBase2" type="Sprite2D" parent="UIscreen" unique_id=108313635]
-position = Vector2(70, 578)
-scale = Vector2(3, 3)
-texture = ExtResource("7_emj6c")
+[node name="HpHUD" type="Label" parent="UIscreen" unique_id=1082160858]
+offset_left = 95.0
+offset_top = 554.0
+offset_right = 229.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 24
+text = "HPTEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 169
+
+[node name="ComboHUD" type="Label" parent="UIscreen" unique_id=266985164]
+offset_left = 178.0
+offset_top = 544.0
+offset_right = 586.0
+offset_bottom = 611.0
+theme_override_font_sizes/font_size = 48
+text = "COMBOCOUNTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 169
