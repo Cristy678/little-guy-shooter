@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bt5l13oyi70x"]
+
+[ext_resource type="SpriteFrames" uid="uid://cokfg6ed1f2t7" path="res://output/character01output.tres" id="1_hddm4"]
+[ext_resource type="Script" uid="uid://cac5hxrx1f7ks" path="res://scripts/CharacterMovement.gd" id="2_qchbg"]
+[ext_resource type="Texture2D" uid="uid://ddk3v4l6yb6wf" path="res://assets/guns/gun01.png" id="3_kddj0"]
+[ext_resource type="Script" uid="uid://b0ap1bqlyabfg" path="res://scripts/GunFunctionality.gd" id="4_q8s1k"]
+[ext_resource type="Texture2D" uid="uid://dwi76af7n5r00" path="res://assets/tilesets/loopinggrass.png" id="5_mm0a5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
+radius = 7.0044627
+
+[node name="playground" type="Node2D" unique_id=757353979]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2070706384]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+script = ExtResource("2_qchbg")
+
+[node name="Player" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=303037382]
+sprite_frames = ExtResource("1_hddm4")
+animation = &"WALKCHAR01"
+autoplay = "IDLECHAR01"
+frame = 3
+frame_progress = 0.45055452
+
+[node name="Gun01" type="Sprite2D" parent="CharacterBody2D/Player" unique_id=471604175]
+position = Vector2(0, 1.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_kddj0")
+flip_h = true
+script = ExtResource("4_q8s1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352831732]
+visible = false
+shape = SubResource("CircleShape2D_hddm4")
+
+[node name="Camera" type="Camera2D" parent="CharacterBody2D" unique_id=222203425]
+
+[node name="AmmoHUD" type="Label" parent="CharacterBody2D/Camera" unique_id=1582704243]
+offset_left = -139.25
+offset_top = 38.0
+offset_right = -49.25
+offset_bottom = 61.0
+text = "AMMOTEXT"
+
+[node name="LoadAmmoHUD" type="Label" parent="CharacterBody2D/Camera" unique_id=677043481]
+offset_left = -140.0
+offset_top = 57.75
+offset_right = -43.0
+offset_bottom = 80.75
+text = "LOADAMMO"
+
+[node name="Loopinggrass" type="Sprite2D" parent="." unique_id=806789057]
+z_index = -16
+texture_repeat = 2
+position = Vector2(576, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("5_mm0a5")
+region_enabled = true
+region_rect = Rect2(512, 256, 512, 256)
