@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3gbfvkqltuf4"
-path="res://.godot/imported/bricktileset.png-7e98f9133095f450fe4f332d0ffaaf6e.ctex"
+uid="uid://dn6idcxfjw1nr"
+path="res://.godot/imported/hudBase2.png-9921c17b260f22a5036c2213dd1d2eba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/bricktileset.png"
-dest_files=["res://.godot/imported/bricktileset.png-7e98f9133095f450fe4f332d0ffaaf6e.ctex"]
+source_file="res://assets/hud/hudBase2.png"
+dest_files=["res://.godot/imported/hudBase2.png-9921c17b260f22a5036c2213dd1d2eba.ctex"]
 
 [params]
 

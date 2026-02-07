@@ -6,8 +6,8 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 @export var loadedammo = 0
 @export var speed = 320
 @onready var animated_sprite: AnimatedSprite2D = $Player
-@onready var ammoHUD: Label = $Camera/AmmoHUD
-@onready var loadammoHUD: Label = $Camera/LoadAmmoHUD
+@onready var ammoHUD: Label = get_parent().get_node("UIscreen/AmmoHUD")
+@onready var loadammoHUD: Label = get_parent().get_node("UIscreen/LoadAmmoHUD")
 @onready var gun: Sprite2D = $Player/Gun01
 
 func _ready() -> void:

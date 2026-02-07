@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ddk3v4l6yb6wf" path="res://assets/guns/gun01.png" id="3_kddj0"]
 [ext_resource type="Script" uid="uid://b0ap1bqlyabfg" path="res://scripts/GunFunctionality.gd" id="4_q8s1k"]
 [ext_resource type="Texture2D" uid="uid://dwi76af7n5r00" path="res://assets/tilesets/loopinggrass.png" id="5_mm0a5"]
+[ext_resource type="Texture2D" uid="uid://dsrxeykfbnxt4" path="res://assets/hud/hudBase1.png" id="6_o6wi6"]
+[ext_resource type="Texture2D" uid="uid://dn6idcxfjw1nr" path="res://assets/hud/hudBase2.png" id="7_emj6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
 radius = 7.0044627
@@ -35,20 +37,10 @@ visible = false
 shape = SubResource("CircleShape2D_hddm4")
 
 [node name="Camera" type="Camera2D" parent="CharacterBody2D" unique_id=222203425]
-
-[node name="AmmoHUD" type="Label" parent="CharacterBody2D/Camera" unique_id=1582704243]
-offset_left = -139.25
-offset_top = 38.0
-offset_right = -49.25
-offset_bottom = 61.0
-text = "AMMOTEXT"
-
-[node name="LoadAmmoHUD" type="Label" parent="CharacterBody2D/Camera" unique_id=677043481]
-offset_left = -140.0
-offset_top = 57.75
-offset_right = -43.0
-offset_bottom = 80.75
-text = "LOADAMMO"
+limit_left = -2497
+limit_top = -1725
+limit_right = 2497
+limit_bottom = 1725
 
 [node name="Loopinggrass" type="Sprite2D" parent="." unique_id=806789057]
 z_index = -16
@@ -57,4 +49,36 @@ position = Vector2(576, 324)
 scale = Vector2(8, 8)
 texture = ExtResource("5_mm0a5")
 region_enabled = true
-region_rect = Rect2(512, 256, 512, 256)
+region_rect = Rect2(768, 512, 768, 512)
+
+[node name="UIscreen" type="CanvasLayer" parent="." unique_id=1204252017]
+layer = 5
+
+[node name="HudBase" type="Sprite2D" parent="UIscreen" unique_id=1709400195]
+position = Vector2(286, 578)
+scale = Vector2(3, 3)
+texture = ExtResource("6_o6wi6")
+
+[node name="AmmoHUD" type="Label" parent="UIscreen" unique_id=1582704243]
+offset_left = 95.0
+offset_top = 604.0
+offset_right = 229.0
+offset_bottom = 638.0
+theme_override_font_sizes/font_size = 24
+text = "AMMOTEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 169
+
+[node name="LoadAmmoHUD" type="Label" parent="UIscreen" unique_id=677043481]
+offset_left = 212.0
+offset_top = 586.0
+offset_right = 453.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 40
+text = "LOADAMMO"
+
+[node name="HudBase2" type="Sprite2D" parent="UIscreen" unique_id=108313635]
+position = Vector2(70, 578)
+scale = Vector2(3, 3)
+texture = ExtResource("7_emj6c")
