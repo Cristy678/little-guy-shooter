@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dlsu67gsdpva4"]
+
+[ext_resource type="SpriteFrames" uid="uid://ctbcvwuwfr2jm" path="res://output/classicSlimeOutput.tres" id="1_371uh"]
+[ext_resource type="Script" uid="uid://cepbf0oygcvj0" path="res://scripts/SlimeBehaviour.gd" id="2_p2gj0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2gj0"]
+radius = 5.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6pvg"]
+radius = 99.255035
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pjw23"]
+radius = 6.504806
+
+[node name="Slime" type="AnimatedSprite2D" unique_id=478402808]
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1_371uh")
+animation = &"MAINANIM01"
+autoplay = "MAINANIM01"
+frame_progress = 0.613047
+script = ExtResource("2_p2gj0")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1720668525]
+
+[node name="shape" type="CollisionShape2D" parent="hitbox" unique_id=1076225373]
+shape = SubResource("CircleShape2D_p2gj0")
+
+[node name="detectionRange" type="Area2D" parent="." unique_id=737630644]
+
+[node name="areaShape" type="CollisionShape2D" parent="detectionRange" unique_id=1709866693]
+shape = SubResource("CircleShape2D_n6pvg")
+
+[node name="shotArea" type="Area2D" parent="." unique_id=1620747266]
+
+[node name="shotShape" type="CollisionShape2D" parent="shotArea" unique_id=1161254763]
+shape = SubResource("CircleShape2D_pjw23")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="detectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="detectionRange" to="." method="_on_detection_range_body_exited"]
+[connection signal="area_entered" from="shotArea" to="." method="_on_shot_area_area_entered"]

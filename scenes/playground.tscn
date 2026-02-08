@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dsrxeykfbnxt4" path="res://assets/hud/hudBase1.png" id="6_o6wi6"]
 [ext_resource type="Texture2D" uid="uid://dn6idcxfjw1nr" path="res://assets/hud/hudBase2.png" id="7_emj6c"]
 [ext_resource type="FontFile" uid="uid://bcu4104ihqus2" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="8_mrac1"]
+[ext_resource type="PackedScene" uid="uid://dlsu67gsdpva4" path="res://scenes/slime.tscn" id="9_2q4k0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
 radius = 7.0044627
@@ -307,7 +308,9 @@ cache/0/31/0/glyphs/141/texture_idx = 0
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2070706384]
 position = Vector2(576, 324)
 scale = Vector2(4, 4)
+disable_mode = 2
 script = ExtResource("2_qchbg")
+ammo = 1000
 
 [node name="Player" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=303037382]
 sprite_frames = ExtResource("1_hddm4")
@@ -323,7 +326,7 @@ texture = ExtResource("3_kddj0")
 flip_h = true
 script = ExtResource("4_q8s1k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352831732]
+[node name="playerHitbox" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352831732]
 visible = false
 shape = SubResource("CircleShape2D_hddm4")
 
@@ -399,3 +402,6 @@ text = "COMBOCOUNTER"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 169
+
+[node name="Slime" parent="." unique_id=478402808 instance=ExtResource("9_2q4k0")]
+position = Vector2(95, 324)
