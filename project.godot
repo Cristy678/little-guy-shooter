@@ -15,6 +15,10 @@ run/main_scene="uid://bt5l13oyi70x"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_up={
