@@ -1,0 +1,55 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dl40dqwlu1wxr"]
+
+[ext_resource type="Texture2D" uid="uid://cmp7mmgdf2bfs" path="res://assets/enemies/enragedSlime.png" id="1_30agu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fijh"]
+atlas = ExtResource("1_30agu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ol24"]
+atlas = ExtResource("1_30agu")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e44x"]
+atlas = ExtResource("1_30agu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8mkk"]
+atlas = ExtResource("1_30agu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jffd"]
+atlas = ExtResource("1_30agu")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+resource_name = "enragedSlimeOutput"
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7fijh")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_1ol24")
+}],
+"loop": false,
+"name": &"DEATHANIM01",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6e44x")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_c8mkk")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0jffd")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_c8mkk")
+}],
+"loop": true,
+"name": &"MAINANIM01 ",
+"speed": 10.0
+}]

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dsrxeykfbnxt4" path="res://assets/hud/hudBase1.png" id="6_o6wi6"]
 [ext_resource type="Texture2D" uid="uid://dn6idcxfjw1nr" path="res://assets/hud/hudBase2.png" id="7_emj6c"]
 [ext_resource type="FontFile" uid="uid://bcu4104ihqus2" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="8_mrac1"]
-[ext_resource type="PackedScene" uid="uid://dlsu67gsdpva4" path="res://scenes/slime.tscn" id="9_2q4k0"]
+[ext_resource type="PackedScene" uid="uid://ccbpi4nfojpi8" path="res://scenes/enraged.tscn" id="9_2q4k0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
 radius = 7.0044627
@@ -403,5 +403,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 169
 
-[node name="Slime" parent="." unique_id=478402808 instance=ExtResource("9_2q4k0")]
-position = Vector2(95, 324)
+[node name="Enraged" parent="." unique_id=478402808 instance=ExtResource("9_2q4k0")]
+position = Vector2(-60, 205)
