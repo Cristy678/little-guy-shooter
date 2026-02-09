@@ -35,7 +35,7 @@ func _on_detection_range_body_exited(body: CharacterBody2D) -> void:
 	pass
 
 func _on_shot_area_area_entered(area: Area2D) -> void:
-	if area.name == "bullet":
+	if area.is_in_group("bullet"):
 		self.play("DEATHANIM01")
 		playerDetected = false
 	pass
