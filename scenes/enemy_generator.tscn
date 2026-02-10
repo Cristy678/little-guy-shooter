@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://cmhx1iu46nxbr"]
 
 [ext_resource type="Script" uid="uid://dxr2nf6jux8sc" path="res://scripts/enemy_generator.gd" id="1_wmpg7"]
+[ext_resource type="Texture2D" uid="uid://cn5er82nx3kol" path="res://assets/tilesets/dirtpatchSmall.png" id="2_3kdfa"]
 
 [node name="EnemyGenerator" type="Node2D" unique_id=1534108593]
 script = ExtResource("1_wmpg7")
 
 [node name="Timer" type="Timer" parent="." unique_id=684513543]
 wait_time = 2.0
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=41366580]
+scale = Vector2(4, 4)
+texture = ExtResource("2_3kdfa")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

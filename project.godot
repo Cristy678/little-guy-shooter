@@ -24,6 +24,9 @@ window/stretch/mode="viewport"
 [global_group]
 
 bullet="Bullet Detection"
+player="Player Detection"
+enemy="Enemy Detection"
+item="Item Detection"
 
 [input]
 

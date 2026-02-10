@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var bullet = bullet_scene.instantiate()
-@onready var player: CharacterBody2D = get_parent().get_node("CharacterBody2D")
+@onready var player: CharacterBody2D = get_parent().get_node("Body")
 @onready var hitbox: Area2D = $hitbox
 @onready var detectionRange: Area2D = $detectionRange
 @onready var scoreSystem: Node2D = get_parent().get_node("ScoreControl")
@@ -19,19 +19,19 @@ func _process(_delta: float) -> void:
 	pass
 	
 func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
-	if body == player:
+	if body.is_in_group("player"):
 		player.hp = player.hp - 2
 		print("HURT")
 	pass
 
 func _on_detection_range_body_entered(body: CharacterBody2D) -> void:
-	if body == player:
+	if body.is_in_group("player"):
 		playerDetected = true
 		print("DETECTED")
 	pass
 
 func _on_detection_range_body_exited(body: CharacterBody2D) -> void:
-	if body == player:
+	if body.is_in_group("player"):
 		playerDetected = false
 		print("LOST")
 	pass
@@ -41,7 +41,7 @@ func _on_shot_area_area_entered(area: Area2D) -> void:
 		self.play("DEATHANIM01")
 		playerDetected = false
 		scoreSystem.Combo = scoreSystem.Combo + 1
-		scoreSystem.Score = scoreSystem.Score + 50 * scoreSystem.Combo
+		scoreSystem.Score = scoreSystem.Score + 75 * 2 / scoreSystem.Combo
 		timer.stop()
 		timer.start()
 	pass

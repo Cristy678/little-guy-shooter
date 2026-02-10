@@ -12,7 +12,7 @@ radius = 99.255035
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjw23"]
 radius = 6.504806
 
-[node name="Slime" type="AnimatedSprite2D" unique_id=478402808]
+[node name="Slime" type="AnimatedSprite2D" unique_id=478402808 groups=["enemy"]]
 scale = Vector2(4, 4)
 sprite_frames = ExtResource("1_371uh")
 animation = &"MAINANIM01"

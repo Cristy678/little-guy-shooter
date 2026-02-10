@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bt5l13oyi70x"]
 
 [ext_resource type="SpriteFrames" uid="uid://cokfg6ed1f2t7" path="res://output/character01output.tres" id="1_hddm4"]
+[ext_resource type="Texture2D" uid="uid://ss5pwg2l6s6k" path="res://assets/tilesets/dirtpatchLarge.png" id="1_rlvb3"]
 [ext_resource type="Script" uid="uid://cac5hxrx1f7ks" path="res://scripts/CharacterMovement.gd" id="2_qchbg"]
 [ext_resource type="Texture2D" uid="uid://ddk3v4l6yb6wf" path="res://assets/guns/gun01.png" id="3_kddj0"]
 [ext_resource type="Script" uid="uid://b0ap1bqlyabfg" path="res://scripts/GunFunctionality.gd" id="4_q8s1k"]
@@ -11,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cmhx1iu46nxbr" path="res://scenes/enemy_generator.tscn" id="11_2bfhc"]
 [ext_resource type="Texture2D" uid="uid://b8in5x2wfv4qq" path="res://assets/hud/scoreCounter.png" id="11_osidk"]
 [ext_resource type="Script" uid="uid://cecif1ryot06j" path="res://scripts/score_control.gd" id="12_osidk"]
+[ext_resource type="PackedScene" uid="uid://dvjryilc73nt4" path="res://scenes/ammo_box.tscn" id="12_rlvb3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
 radius = 7.0044627
@@ -423,34 +425,38 @@ cache/0/32/0/glyphs/97/texture_idx = 0
 
 [node name="playground" type="Node2D" unique_id=757353979]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2070706384]
+[node name="DirtpatchLarge" type="Sprite2D" parent="." unique_id=1950143156]
+position = Vector2(576, 346)
+scale = Vector2(4, 4)
+texture = ExtResource("1_rlvb3")
+
+[node name="Body" type="CharacterBody2D" parent="." unique_id=2070706384 groups=["player"]]
 position = Vector2(576, 324)
 scale = Vector2(4, 4)
 disable_mode = 2
 script = ExtResource("2_qchbg")
-ammo = 10000
 
-[node name="Player" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=303037382]
+[node name="Player" type="AnimatedSprite2D" parent="Body" unique_id=303037382]
 sprite_frames = ExtResource("1_hddm4")
 animation = &"IDLECHAR01"
 autoplay = "IDLECHAR01"
 
-[node name="Gun01" type="Sprite2D" parent="CharacterBody2D/Player" unique_id=471604175]
+[node name="Gun01" type="Sprite2D" parent="Body/Player" unique_id=471604175]
 position = Vector2(0, 1.5)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_kddj0")
 flip_h = true
 script = ExtResource("4_q8s1k")
 
-[node name="playerHitbox" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1352831732]
+[node name="playerHitbox" type="CollisionShape2D" parent="Body" unique_id=1352831732]
 visible = false
 shape = SubResource("CircleShape2D_hddm4")
 
-[node name="Camera" type="Camera2D" parent="CharacterBody2D" unique_id=222203425]
-limit_left = -2497
-limit_top = -1725
-limit_right = 2497
-limit_bottom = 1725
+[node name="Camera" type="Camera2D" parent="Body" unique_id=222203425]
+limit_left = -2496
+limit_top = -1724
+limit_right = 3648
+limit_bottom = 2372
 
 [node name="Loopinggrass" type="Sprite2D" parent="." unique_id=806789057]
 z_index = -16
@@ -687,5 +693,8 @@ position = Vector2(-1834, 1147)
 [node name="EnemyGenerator32" parent="." unique_id=516699011 instance=ExtResource("11_2bfhc")]
 position = Vector2(3324, 155)
 
-[connection signal="animation_finished" from="CharacterBody2D/Player" to="CharacterBody2D" method="_on_player_animation_finished"]
+[node name="ammoBox" parent="." unique_id=864849094 instance=ExtResource("12_rlvb3")]
+position = Vector2(313, 347)
+
+[connection signal="animation_finished" from="Body/Player" to="Body" method="_on_player_animation_finished"]
 [connection signal="timeout" from="ScoreControl/Timer" to="ScoreControl" method="_on_timer_timeout"]

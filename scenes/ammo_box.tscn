@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvjryilc73nt4"]
+
+[ext_resource type="Texture2D" uid="uid://b014xt5x1evc7" path="res://assets/items/item1.png" id="1_ye4hu"]
+[ext_resource type="Script" uid="uid://db0v1n4wgbk10" path="res://scripts/ammo_box.gd" id="2_00kdr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_00kdr"]
+radius = 8.003905
+
+[node name="ammoBox" type="Sprite2D" unique_id=864849094 groups=["item"]]
+scale = Vector2(4, 4)
+texture = ExtResource("1_ye4hu")
+script = ExtResource("2_00kdr")
+
+[node name="detectBox" type="Area2D" parent="." unique_id=1025829235]
+
+[node name="Shape" type="CollisionShape2D" parent="detectBox" unique_id=157863528]
+shape = SubResource("CircleShape2D_00kdr")
+
+[connection signal="body_entered" from="detectBox" to="." method="_on_detect_box_body_entered"]

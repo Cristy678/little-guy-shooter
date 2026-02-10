@@ -3,7 +3,7 @@ extends Node2D
 
 var coords: Vector2 = Vector2.ZERO
 @onready var timer: Timer = get_node("Timer")
-@onready var cam: Camera2D = get_parent().get_node("CharacterBody2D/Camera")
+@onready var cam: Camera2D = get_parent().get_node("Body/Camera")
 var slimeEnemy = preload("res://scenes/slime.tscn")
 var enragedEnemy = preload("res://scenes/enraged.tscn")
 

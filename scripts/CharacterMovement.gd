@@ -20,6 +20,8 @@ func _ready() -> void:
 	
 func _physics_process(_delta: float) -> void:
 	hpHUD.text = str(hp)
+	ammoHUD.text = str(ammo)
+	loadammoHUD.text = str(loadedammo)
 	if hp <= 0:
 		scoreSystem.Combo = 0
 		animated_sprite.play("DEADCHAR01")
