@@ -57,11 +57,25 @@ func _physics_process(_delta: float) -> void:
 				loadedammo = loadedammo - 1
 				ammoHUD.text = str(ammo)
 				loadammoHUD.text = str(loadedammo)
-				pass
+			else:
+				modulate = Color(0.5,0.5,0.5)
+				await get_tree().create_timer(0.1).timeout
+				modulate = Color(0.75,0.75,0.75)
+				await get_tree().create_timer(0.1).timeout
+				modulate = Color(1,1,1)
 			pass
-	
+
+func hit():
+	modulate = Color(1,0,0)
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1,0.5,0.5)
+	await get_tree().create_timer(0.1).timeout
+	modulate = Color(1,1,1)
+	pass
+
 func _on_player_animation_finished() -> void:
-	queue_free()
+	self.visible = false
 	print("PLAYER KILLED")
+	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()
 	pass

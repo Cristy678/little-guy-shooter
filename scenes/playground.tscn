@@ -10,8 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://dn6idcxfjw1nr" path="res://assets/hud/hudBase2.png" id="7_emj6c"]
 [ext_resource type="FontFile" uid="uid://bcu4104ihqus2" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="8_mrac1"]
 [ext_resource type="PackedScene" uid="uid://cmhx1iu46nxbr" path="res://scenes/enemy_generator.tscn" id="11_2bfhc"]
+[ext_resource type="Texture2D" uid="uid://cjtli8xpolsol" path="res://assets/hud/progressBarPixelLong.png" id="11_2ilni"]
 [ext_resource type="Texture2D" uid="uid://b8in5x2wfv4qq" path="res://assets/hud/scoreCounter.png" id="11_osidk"]
 [ext_resource type="Script" uid="uid://cecif1ryot06j" path="res://scripts/score_control.gd" id="12_osidk"]
+[ext_resource type="PackedScene" uid="uid://dvjryilc73nt4" path="res://scenes/ammo_box.tscn" id="12_rlvb3"]
+[ext_resource type="Texture2D" uid="uid://b2bu1asumpchn" path="res://assets/hud/progressBarItemLong.png" id="12_x2tju"]
+[ext_resource type="Texture2D" uid="uid://bo5csgr0dwaiy" path="res://assets/items/item2.png" id="13_wm6m6"]
+[ext_resource type="PackedScene" uid="uid://dmtd3qsjsxguy" path="res://scenes/speed_shoes.tscn" id="14_k63md"]
+[ext_resource type="Texture2D" uid="uid://ojgxv7708ptp" path="res://assets/items/item3.png" id="14_ocmmj"]
+[ext_resource type="PackedScene" uid="uid://63hb632qgp05" path="res://scenes/invencibility_start.tscn" id="15_fn4oh"]
 [ext_resource type="PackedScene" uid="uid://cde1p1osusbsf" path="res://scenes/item_generator.tscn" id="16_j30dx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
@@ -498,10 +505,10 @@ vertical_alignment = 1
 justification_flags = 169
 
 [node name="ComboTimer" type="Label" parent="UIscreen" unique_id=709158553]
-offset_left = 333.0
-offset_top = 616.0
-offset_right = 430.0
-offset_bottom = 636.0
+offset_left = 397.0
+offset_top = 615.0
+offset_right = 494.0
+offset_bottom = 635.0
 theme_override_fonts/font = ExtResource("8_mrac1")
 theme_override_font_sizes/font_size = 16
 text = "COMBOTIMER"
@@ -542,10 +549,18 @@ vertical_alignment = 1
 justification_flags = 169
 
 [node name="ComboHUD" type="Label" parent="UIscreen" unique_id=266985164]
-offset_left = 178.0
-offset_top = 544.0
-offset_right = 586.0
-offset_bottom = 611.0
+anchors_preset = -1
+anchor_left = 0.18100001
+anchor_top = 0.846
+anchor_right = 0.47900003
+anchor_bottom = 0.93700004
+offset_left = 0.48799133
+offset_top = -0.20800781
+offset_right = 0.19195557
+offset_bottom = -0.17602539
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(171.5, 29.5)
 theme_override_fonts/font = ExtResource("8_mrac1")
 theme_override_font_sizes/font_size = 48
 text = "COMBOCOUNTER"
@@ -588,6 +603,38 @@ offset_bottom = 539.0
 theme_override_fonts/font = ExtResource("8_mrac1")
 theme_override_font_sizes/font_size = 12
 text = "Combo"
+
+[node name="ComboDuration" type="TextureProgressBar" parent="UIscreen" unique_id=1067477716]
+offset_left = 337.0
+offset_top = 620.0
+offset_right = 497.7143
+offset_bottom = 636.0
+scale = Vector2(0.56, 0.56)
+texture_progress = ExtResource("11_2ilni")
+
+[node name="SpeedDuration" type="TextureProgressBar" parent="UIscreen" unique_id=1101508221]
+offset_left = 984.0
+offset_top = 625.0
+offset_right = 1144.0
+offset_bottom = 641.0
+value = 100.0
+texture_progress = ExtResource("12_x2tju")
+
+[node name="SpeedIcon" type="Sprite2D" parent="UIscreen/SpeedDuration" unique_id=123531774]
+position = Vector2(-12, 8)
+texture = ExtResource("13_wm6m6")
+
+[node name="StarDuration" type="TextureProgressBar" parent="UIscreen" unique_id=2009821630]
+offset_left = 984.0
+offset_top = 596.0
+offset_right = 1144.0
+offset_bottom = 612.0
+value = 100.0
+texture_progress = ExtResource("12_x2tju")
+
+[node name="StarIcon" type="Sprite2D" parent="UIscreen/StarDuration" unique_id=1387880227]
+position = Vector2(-12, 8)
+texture = ExtResource("14_ocmmj")
 
 [node name="ScoreControl" type="Node2D" parent="." unique_id=1508096873]
 position = Vector2(576, 23)
@@ -704,6 +751,15 @@ position = Vector2(2377, -542)
 
 [node name="ItemGenerator4" parent="." unique_id=1821571990 instance=ExtResource("16_j30dx")]
 position = Vector2(-9, 2149)
+
+[node name="ammoBox" parent="." unique_id=864849094 instance=ExtResource("12_rlvb3")]
+position = Vector2(244, 303)
+
+[node name="speedShoes" parent="." unique_id=1420267310 instance=ExtResource("14_k63md")]
+position = Vector2(804, 470)
+
+[node name="invencibilityStar" parent="." unique_id=499253429 instance=ExtResource("15_fn4oh")]
+position = Vector2(739, 142)
 
 [connection signal="animation_finished" from="Body/Player" to="Body" method="_on_player_animation_finished"]
 [connection signal="timeout" from="ScoreControl/Timer" to="ScoreControl" method="_on_timer_timeout"]
