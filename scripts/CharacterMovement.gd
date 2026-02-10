@@ -6,6 +6,7 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 @export var ammo = 100
 @export var loadedammo = 0
 @export var speed = 320
+@export var invencible = false
 @onready var animated_sprite: AnimatedSprite2D = $Player
 @onready var ammoHUD: Label = get_parent().get_node("UIscreen/AmmoHUD")
 @onready var loadammoHUD: Label = get_parent().get_node("UIscreen/LoadAmmoHUD")

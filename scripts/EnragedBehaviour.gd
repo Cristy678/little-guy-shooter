@@ -20,8 +20,10 @@ func _process(_delta: float) -> void:
 	
 func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("player"):
-		player.hp = player.hp - 5
-		print("HURT")
+		if player.invencible == false:
+			player.hp = player.hp - 5
+			print("HURT")
+		pass
 	pass
 
 func _on_detection_range_body_entered(body: CharacterBody2D) -> void:

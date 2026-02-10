@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cde1p1osusbsf"]
+
+[ext_resource type="Script" uid="uid://bprti3ep53g3j" path="res://scripts/item_generator.gd" id="1_ehwey"]
+[ext_resource type="Texture2D" uid="uid://d03su7lu2gqrh" path="res://assets/tilesets/itemDigitizer.png" id="2_ehwey"]
+
+[node name="ItemGenerator" type="Node2D" unique_id=1534108593]
+script = ExtResource("1_ehwey")
+
+[node name="Timer" type="Timer" parent="." unique_id=684513543]
+wait_time = 2.0
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=41366580]
+scale = Vector2(4, 4)
+texture = ExtResource("2_ehwey")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
