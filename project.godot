@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Little Guy Shooter"
 config/description="FIRST PUBLIC BUILD OF LGS"
+config/version="Indev.B.3.7.2"
 run/main_scene="uid://dmfy2dxexbu6n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
