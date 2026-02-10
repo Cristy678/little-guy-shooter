@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cmhx1iu46nxbr"]
+
+[ext_resource type="Script" uid="uid://dxr2nf6jux8sc" path="res://scripts/enemy_generator.gd" id="1_wmpg7"]
+
+[node name="EnemyGenerator" type="Node2D" unique_id=1534108593]
+script = ExtResource("1_wmpg7")
+
+[node name="Timer" type="Timer" parent="." unique_id=684513543]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

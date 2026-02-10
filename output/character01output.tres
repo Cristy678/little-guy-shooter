@@ -87,10 +87,10 @@ animations = [{
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_0u68k")
 }, {
-"duration": 4.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_mvmcx")
 }],
-"loop": true,
+"loop": false,
 "name": &"DEADCHAR01",
 "speed": 5.0
 }, {

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dmfy2dxexbu6n"]
+
+[ext_resource type="Texture2D" uid="uid://b0ja4cmhq8t8c" path="res://assets/bg/bg1.png" id="1_3jj3l"]
+[ext_resource type="Texture2D" uid="uid://jpd5dpldluh" path="res://assets/bg/bg2.png" id="2_tt55a"]
+[ext_resource type="Texture2D" uid="uid://si4xlb6agd8b" path="res://assets/logo.png" id="3_tt55a"]
+[ext_resource type="FontFile" uid="uid://dxpq7p446okvj" path="res://fonts/Pixellari.ttf" id="4_t7v6v"]
+[ext_resource type="Script" uid="uid://dl2ji0d217wbl" path="res://scripts/menuScripts/startGame.gd" id="4_vhbaf"]
+
+[node name="Node2D" type="Node2D" unique_id=296250477]
+
+[node name="Bg1" type="Sprite2D" parent="." unique_id=960132052]
+texture_repeat = 2
+position = Vector2(589, 329)
+scale = Vector2(4, 4)
+texture = ExtResource("1_3jj3l")
+region_enabled = true
+region_rect = Rect2(512, 256, 512, 256)
+
+[node name="Bg2" type="Sprite2D" parent="." unique_id=80925360]
+position = Vector2(604, 310)
+scale = Vector2(24.25, 12.984375)
+texture = ExtResource("2_tt55a")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=438793682]
+position = Vector2(576, 170)
+scale = Vector2(2, 2)
+texture = ExtResource("3_tt55a")
+
+[node name="startNode" type="Node2D" parent="." unique_id=410656467]
+script = ExtResource("4_vhbaf")
+
+[node name="infoLabel" type="Label" parent="." unique_id=1283181968]
+offset_left = 135.0
+offset_top = 316.0
+offset_right = 996.0
+offset_bottom = 556.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+theme_override_font_sizes/font_size = 24
+text = "Heya! Welcome to the FIRST Public Indev Version of my next Upcoming Game!
+The Premise is Simple, You shoot the Slimes and Get the Highest Score Possible!
+You think you have what it takes to reach over 100000 Score?
+Only You can find out!, When the game is fully Released...
+But you can still try this unfinished Demo!
+
+Move -> Arrow Keys (Right,Left,Up,Down Arrows)
+Shoot -> Z Key
+Reload -> R Key"
+horizontal_alignment = 1
+
+[node name="startLabel" type="Label" parent="." unique_id=139449224]
+offset_left = 338.0
+offset_top = 575.0
+offset_right = 794.0
+offset_bottom = 623.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+theme_override_font_sizes/font_size = 48
+text = "Press Space to Start!"
