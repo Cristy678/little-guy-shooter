@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Little Guy Shooter"
+config/description="FIRST PUBLIC BUILD OF LGS"
 run/main_scene="uid://dmfy2dxexbu6n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
