@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ojgxv7708ptp" path="res://assets/items/item3.png" id="1_4oobw"]
 [ext_resource type="Script" uid="uid://rrbud6r6f73v" path="res://scripts/invencibility_star.gd" id="2_4oobw"]
+[ext_resource type="AudioStream" uid="uid://dacgtwa66o62x" path="res://sounds/678384__deltacode__item-pickup-v1.wav" id="3_xsvac"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00kdr"]
 radius = 8.003905
@@ -18,6 +19,10 @@ shape = SubResource("CircleShape2D_00kdr")
 
 [node name="timer" type="Timer" parent="." unique_id=1199620915]
 wait_time = 10.0
+
+[node name="audioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2028391524]
+stream = ExtResource("3_xsvac")
+bus = &"SFX"
 
 [connection signal="body_entered" from="detectBox" to="." method="_on_detect_box_body_entered"]
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

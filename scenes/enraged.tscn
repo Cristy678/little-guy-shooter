@@ -2,6 +2,7 @@
 
 [ext_resource type="SpriteFrames" uid="uid://dl40dqwlu1wxr" path="res://output/enragedSlimeOutput.tres" id="1_4e2s4"]
 [ext_resource type="Script" uid="uid://du0tnxk66ijx5" path="res://scripts/EnragedBehaviour.gd" id="2_4e2s4"]
+[ext_resource type="AudioStream" uid="uid://cjcd0rwaycdgt" path="res://sounds/756357__indyarts__echoing-retro-impact.wav" id="3_cmv1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2gj0"]
 radius = 5.25
@@ -33,6 +34,11 @@ shape = SubResource("CircleShape2D_n6pvg")
 
 [node name="shotShape" type="CollisionShape2D" parent="shotArea" unique_id=1161254763]
 shape = SubResource("CircleShape2D_pjw23")
+
+[node name="audioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1895121218]
+stream = ExtResource("3_cmv1t")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

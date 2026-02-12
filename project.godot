@@ -17,8 +17,18 @@ run/main_scene="uid://dmfy2dxexbu6n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bson5sw4j44hm"
+
+[buses]
+
+music_bus.tres=false
+
 [display]
 
+window/size/resizable=false
+window/size/maximize_disabled=true
 window/stretch/mode="viewport"
 
 [global_group]

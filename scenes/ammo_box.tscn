@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b014xt5x1evc7" path="res://assets/items/item1.png" id="1_ye4hu"]
 [ext_resource type="Script" uid="uid://db0v1n4wgbk10" path="res://scripts/ammo_box.gd" id="2_00kdr"]
+[ext_resource type="AudioStream" uid="uid://dacgtwa66o62x" path="res://sounds/678384__deltacode__item-pickup-v1.wav" id="3_1r4qa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_00kdr"]
 radius = 8.003905
@@ -15,5 +16,9 @@ script = ExtResource("2_00kdr")
 
 [node name="Shape" type="CollisionShape2D" parent="detectBox" unique_id=157863528]
 shape = SubResource("CircleShape2D_00kdr")
+
+[node name="audioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=874286689]
+stream = ExtResource("3_1r4qa")
+bus = &"SFX"
 
 [connection signal="body_entered" from="detectBox" to="." method="_on_detect_box_body_entered"]

@@ -7,12 +7,16 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 @export var loadedammo = 0
 @export var speed = 320
 @export var invencible = false
+@export var playerDead = false
 @onready var animated_sprite: AnimatedSprite2D = $Player
 @onready var ammoHUD: Label = get_parent().get_node("UIscreen/AmmoHUD")
 @onready var loadammoHUD: Label = get_parent().get_node("UIscreen/LoadAmmoHUD")
 @onready var hpHUD: Label = get_parent().get_node("UIscreen/HpHUD")
 @onready var scoreSystem: Node2D = get_parent().get_node("ScoreControl")
 @onready var gun: Sprite2D = $Player/Gun01
+@onready var audioLost: AudioStreamPlayer2D = $audioLoser
+@onready var audioShoot: AudioStreamPlayer2D = $audioShoot
+@onready var audioReload: AudioStreamPlayer2D = $audioReload
 
 func _ready() -> void:
 	ammoHUD.text = str(ammo)
@@ -26,6 +30,10 @@ func _physics_process(_delta: float) -> void:
 	if hp <= 0:
 		scoreSystem.Combo = 0
 		animated_sprite.play("DEADCHAR01")
+		await get_tree().create_timer(0.2).timeout
+		if playerDead == false:
+			audioPlay_onLost()
+			playerDead = true
 	else:
 		var input_vector = Input.get_vector("move_left","move_right","move_up","move_down")
 		velocity = input_vector * speed
@@ -47,6 +55,7 @@ func _physics_process(_delta: float) -> void:
 				ammo = ammo - 20
 				ammoHUD.text = str(ammo)
 				loadammoHUD.text = str(loadedammo)
+				audioReload.play()
 			pass
 		if Input.is_action_just_pressed("shoot"):
 			var bullet = bullet_scene.instantiate()
@@ -57,6 +66,7 @@ func _physics_process(_delta: float) -> void:
 				loadedammo = loadedammo - 1
 				ammoHUD.text = str(ammo)
 				loadammoHUD.text = str(loadedammo)
+				audioShoot.play()
 			else:
 				modulate = Color(0.5,0.5,0.5)
 				await get_tree().create_timer(0.1).timeout
@@ -79,3 +89,6 @@ func _on_player_animation_finished() -> void:
 	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()
 	pass
+
+func audioPlay_onLost():
+	audioLost.play()

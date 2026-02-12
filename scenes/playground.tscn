@@ -7,7 +7,10 @@
 [ext_resource type="Script" uid="uid://b0ap1bqlyabfg" path="res://scripts/GunFunctionality.gd" id="4_q8s1k"]
 [ext_resource type="Texture2D" uid="uid://dwi76af7n5r00" path="res://assets/tilesets/loopinggrass.png" id="5_mm0a5"]
 [ext_resource type="Texture2D" uid="uid://dsrxeykfbnxt4" path="res://assets/hud/hudBase1.png" id="6_o6wi6"]
+[ext_resource type="AudioStream" uid="uid://c51dqov7rt0ni" path="res://sounds/350985__cabled_mess__lose_c_02.wav" id="6_rdeg0"]
 [ext_resource type="Texture2D" uid="uid://dn6idcxfjw1nr" path="res://assets/hud/hudBase2.png" id="7_emj6c"]
+[ext_resource type="AudioStream" uid="uid://bcnwmrxaqxhkt" path="res://sounds/415912__okieactor__heathers-gunshot-effect2.wav" id="7_reluu"]
+[ext_resource type="AudioStream" uid="uid://bie8it63xdisf" path="res://sounds/841162__gulfstreamav__reloadEdited.wav" id="8_csshy"]
 [ext_resource type="FontFile" uid="uid://bcu4104ihqus2" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="8_mrac1"]
 [ext_resource type="PackedScene" uid="uid://cmhx1iu46nxbr" path="res://scenes/enemy_generator.tscn" id="11_2bfhc"]
 [ext_resource type="Texture2D" uid="uid://cjtli8xpolsol" path="res://assets/hud/progressBarPixelLong.png" id="11_2ilni"]
@@ -20,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://ojgxv7708ptp" path="res://assets/items/item3.png" id="14_ocmmj"]
 [ext_resource type="PackedScene" uid="uid://63hb632qgp05" path="res://scenes/invencibility_start.tscn" id="15_fn4oh"]
 [ext_resource type="PackedScene" uid="uid://cde1p1osusbsf" path="res://scenes/item_generator.tscn" id="16_j30dx"]
+[ext_resource type="AudioStream" uid="uid://cp6t16xv5x815" path="res://sounds/mixkit-video-game-retro-click-237.wav" id="16_ocmmj"]
+[ext_resource type="AudioStream" uid="uid://dhv83besajkn2" path="res://sounds/mixkit-video-game-mystery-alert-234.wav" id="17_vwj6b"]
+[ext_resource type="AudioStream" uid="uid://dmrjj88j6b2e1" path="res://music/Cyborg Ninja.mp3" id="26_reluu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
 radius = 7.0044627
@@ -465,6 +471,19 @@ limit_top = -1724
 limit_right = 3648
 limit_bottom = 2372
 
+[node name="audioLoser" type="AudioStreamPlayer2D" parent="Body" unique_id=157362729]
+stream = ExtResource("6_rdeg0")
+volume_db = 24.0
+bus = &"SFX"
+
+[node name="audioShoot" type="AudioStreamPlayer2D" parent="Body" unique_id=221752568]
+stream = ExtResource("7_reluu")
+bus = &"SFX"
+
+[node name="audioReload" type="AudioStreamPlayer2D" parent="Body" unique_id=1324249750]
+stream = ExtResource("8_csshy")
+bus = &"SFX"
+
 [node name="Loopinggrass" type="Sprite2D" parent="." unique_id=806789057]
 z_index = -16
 texture_repeat = 2
@@ -604,6 +623,15 @@ theme_override_fonts/font = ExtResource("8_mrac1")
 theme_override_font_sizes/font_size = 12
 text = "Combo"
 
+[node name="ScoreName" type="Label" parent="UIscreen" unique_id=1248860633]
+offset_left = 541.0
+offset_top = 7.0
+offset_right = 609.0
+offset_bottom = 37.0
+theme_override_fonts/font = ExtResource("8_mrac1")
+theme_override_font_sizes/font_size = 24
+text = "Score"
+
 [node name="ComboDuration" type="TextureProgressBar" parent="UIscreen" unique_id=1067477716]
 offset_left = 337.0
 offset_top = 620.0
@@ -643,6 +671,18 @@ script = ExtResource("12_osidk")
 [node name="Timer" type="Timer" parent="ScoreControl" unique_id=1632806020]
 wait_time = 10.0
 one_shot = true
+
+[node name="audioCombo" type="AudioStreamPlayer2D" parent="ScoreControl" unique_id=1514396202]
+stream = ExtResource("16_ocmmj")
+volume_db = 12.0
+max_distance = 1000000.0
+bus = &"SFX"
+
+[node name="audioLost" type="AudioStreamPlayer2D" parent="ScoreControl" unique_id=690608219]
+stream = ExtResource("17_vwj6b")
+volume_db = 12.0
+max_distance = 1000000.0
+bus = &"SFX"
 
 [node name="EnemyGenerator" parent="." unique_id=1534108593 instance=ExtResource("11_2bfhc")]
 position = Vector2(-609, -574)
@@ -760,6 +800,14 @@ position = Vector2(804, 470)
 
 [node name="invencibilityStar" parent="." unique_id=499253429 instance=ExtResource("15_fn4oh")]
 position = Vector2(739, 142)
+
+[node name="musicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=426743079]
+position = Vector2(576, 324)
+stream = ExtResource("26_reluu")
+volume_db = -6.0
+autoplay = true
+max_distance = 10000000000.0
+bus = &"Music"
 
 [connection signal="animation_finished" from="Body/Player" to="Body" method="_on_player_animation_finished"]
 [connection signal="timeout" from="ScoreControl/Timer" to="ScoreControl" method="_on_timer_timeout"]

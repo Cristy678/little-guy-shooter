@@ -1,0 +1,32 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bson5sw4j44hm"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_26340"]
+resource_name = "Compressor"
+threshold = -6.6
+ratio = 2.1
+gain = -0.6
+attack_us = 30.0
+release_ms = 172.0
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_26340"]
+resource_name = "Limiter"
+soft_clip_db = 0.8
+soft_clip_ratio = 6.0
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"SFX"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -0.0038433075
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectCompressor_26340")
+bus/2/effect/0/enabled = true
+bus/2/effect/1/effect = SubResource("AudioEffectLimiter_26340")
+bus/2/effect/1/enabled = true

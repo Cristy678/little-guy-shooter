@@ -3,8 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://b0ja4cmhq8t8c" path="res://assets/bg/bg1.png" id="1_3jj3l"]
 [ext_resource type="Texture2D" uid="uid://jpd5dpldluh" path="res://assets/bg/bg2.png" id="2_tt55a"]
 [ext_resource type="Texture2D" uid="uid://si4xlb6agd8b" path="res://assets/logo.png" id="3_tt55a"]
+[ext_resource type="Script" uid="uid://bt25vhuts2k58" path="res://scripts/menuScripts/logoMovement.gd" id="4_rpvs4"]
 [ext_resource type="FontFile" uid="uid://dxpq7p446okvj" path="res://fonts/Pixellari.ttf" id="4_t7v6v"]
 [ext_resource type="Script" uid="uid://dl2ji0d217wbl" path="res://scripts/menuScripts/startGame.gd" id="4_vhbaf"]
+[ext_resource type="AudioStream" uid="uid://uj8aip8asbn6" path="res://music/Bit Quest.mp3" id="6_v6ms7"]
+[ext_resource type="Texture2D" uid="uid://dnytytw5a0q3u" path="res://assets/hud/startButton.png" id="8_6ejck"]
+[ext_resource type="Texture2D" uid="uid://cmbeq6k8rdpuf" path="res://assets/hud/startButtonLight.png" id="9_w77yj"]
+[ext_resource type="Texture2D" uid="uid://c5ol54b1cyhjc" path="res://assets/hud/optionsButton.png" id="10_hcbn3"]
+[ext_resource type="Script" uid="uid://04mqn0gfmbmr" path="res://scripts/menuScripts/start_button.gd" id="10_lsij0"]
+[ext_resource type="Texture2D" uid="uid://cidj070jpueg1" path="res://assets/hud/exitButton.png" id="10_v7hj3"]
+[ext_resource type="Texture2D" uid="uid://cldlf2oupykq0" path="res://assets/hud/exitButtonLight.png" id="11_8or72"]
+[ext_resource type="Texture2D" uid="uid://biy866upcgsha" path="res://assets/hud/optionsButtonLight.png" id="11_ybki2"]
+[ext_resource type="Script" uid="uid://cminvr723hpf1" path="res://scripts/menuScripts/settings_button.gd" id="13_y7yat"]
+[ext_resource type="Script" uid="uid://bwrqcsdwoxtpb" path="res://scripts/menuScripts/exit_button.gd" id="14_ybki2"]
+[ext_resource type="Script" uid="uid://pl47dbgvhpb" path="res://scripts/menuScripts/windowSetting.gd" id="17_t3dwt"]
+[ext_resource type="Script" uid="uid://cng2brodh04ne" path="res://scripts/menuScripts/resolutionScale.gd" id="18_anfsg"]
+[ext_resource type="Script" uid="uid://cdmcqn03mwfpb" path="res://scripts/menuScripts/master_slider.gd" id="19_rh5o5"]
 
 [node name="Node2D" type="Node2D" unique_id=296250477]
 
@@ -17,41 +31,193 @@ region_enabled = true
 region_rect = Rect2(512, 256, 512, 256)
 
 [node name="Bg2" type="Sprite2D" parent="." unique_id=80925360]
-position = Vector2(604, 310)
-scale = Vector2(24.25, 12.984375)
+position = Vector2(577.00006, 337.00003)
+scale = Vector2(28.359375, 14.5078125)
 texture = ExtResource("2_tt55a")
 
 [node name="Logo" type="Sprite2D" parent="." unique_id=438793682]
-position = Vector2(576, 170)
-scale = Vector2(2, 2)
+visible = false
+position = Vector2(576, 276)
+scale = Vector2(2.78125, 2.78125)
 texture = ExtResource("3_tt55a")
+script = ExtResource("4_rpvs4")
 
 [node name="startNode" type="Node2D" parent="." unique_id=410656467]
 script = ExtResource("4_vhbaf")
 
-[node name="infoLabel" type="Label" parent="." unique_id=1283181968]
-offset_left = 135.0
-offset_top = 316.0
-offset_right = 996.0
-offset_bottom = 556.0
-theme_override_fonts/font = ExtResource("4_t7v6v")
-theme_override_font_sizes/font_size = 24
-text = "Heya! Welcome to the FIRST Public Indev Version of my next Upcoming Game!
-The Premise is Simple, You shoot the Slimes and Get the Highest Score Possible!
-You think you have what it takes to reach over 100000 Score?
-Only You can find out!, When the game is fully Released...
-But you can still try this unfinished Demo!
-
-Move -> Arrow Keys (Right,Left,Up,Down Arrows)
-Shoot -> Z Key
-Reload -> R Key"
-horizontal_alignment = 1
-
 [node name="startLabel" type="Label" parent="." unique_id=139449224]
-offset_left = 338.0
-offset_top = 575.0
-offset_right = 794.0
-offset_bottom = 623.0
+visible = false
+offset_left = 349.0
+offset_top = 514.0
+offset_right = 805.0
+offset_bottom = 562.0
 theme_override_fonts/font = ExtResource("4_t7v6v")
 theme_override_font_sizes/font_size = 48
-text = "Press Space to Start!"
+text = "Press Space to Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="musicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=916241552]
+stream = ExtResource("6_v6ms7")
+volume_db = -2.0
+autoplay = true
+bus = &"Music"
+
+[node name="menuContent" type="CenterContainer" parent="." unique_id=1335369942]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 130.0
+offset_right = 568.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="mainButtons" type="VBoxContainer" parent="menuContent" unique_id=1063453866]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="startButton" type="TextureButton" parent="menuContent/mainButtons" unique_id=1771389776]
+layout_mode = 2
+texture_normal = ExtResource("8_6ejck")
+texture_pressed = ExtResource("9_w77yj")
+texture_hover = ExtResource("9_w77yj")
+texture_disabled = ExtResource("8_6ejck")
+texture_focused = ExtResource("8_6ejck")
+script = ExtResource("10_lsij0")
+
+[node name="settingsButton" type="TextureButton" parent="menuContent/mainButtons" unique_id=193174829]
+layout_mode = 2
+texture_normal = ExtResource("10_hcbn3")
+texture_pressed = ExtResource("11_ybki2")
+texture_hover = ExtResource("11_ybki2")
+texture_disabled = ExtResource("10_hcbn3")
+texture_focused = ExtResource("10_hcbn3")
+script = ExtResource("13_y7yat")
+
+[node name="exitButton" type="TextureButton" parent="menuContent/mainButtons" unique_id=802160925]
+layout_mode = 2
+texture_normal = ExtResource("10_v7hj3")
+texture_pressed = ExtResource("11_8or72")
+texture_hover = ExtResource("11_8or72")
+texture_disabled = ExtResource("10_v7hj3")
+texture_focused = ExtResource("10_v7hj3")
+script = ExtResource("14_ybki2")
+
+[node name="settingsStuff" type="Control" parent="." unique_id=1103666929]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="settingsBG" type="ColorRect" parent="settingsStuff" unique_id=891135552]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 1108.0789
+offset_bottom = 612.0
+color = Color(0, 0, 0, 0.46666667)
+
+[node name="general" type="Button" parent="settingsStuff" unique_id=275246514]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 574.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+text = "General"
+
+[node name="input" type="Button" parent="settingsStuff" unique_id=1948913848]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 40.0
+offset_right = 1108.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+text = "Input"
+
+[node name="generalStuff" type="Control" parent="settingsStuff" unique_id=1521490732]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="windowMode" type="OptionButton" parent="settingsStuff/generalStuff" unique_id=1803594569]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 148.0
+offset_right = 1056.0
+offset_bottom = 204.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+theme_override_font_sizes/font_size = 48
+selected = 0
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Maximized"
+popup/item_2/id = 2
+script = ExtResource("17_t3dwt")
+
+[node name="resolution" type="OptionButton" parent="settingsStuff/generalStuff" unique_id=1920323635]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 254.0
+offset_right = 1056.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+theme_override_font_sizes/font_size = 48
+selected = 2
+item_count = 7
+popup/item_0/text = "720x432"
+popup/item_0/id = 0
+popup/item_1/text = "1024x576"
+popup/item_1/id = 1
+popup/item_2/text = "1152x648"
+popup/item_2/id = 2
+popup/item_3/text = "1280x720"
+popup/item_3/id = 3
+popup/item_4/text = "1600x880"
+popup/item_4/id = 4
+popup/item_5/text = "1920x1080"
+popup/item_5/id = 5
+popup/item_6/text = "2560x1440"
+popup/item_6/id = 6
+script = ExtResource("18_anfsg")
+
+[node name="masterSlider" type="HSlider" parent="settingsStuff/generalStuff" unique_id=1189890023]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 399.0
+offset_right = 1056.0
+offset_bottom = 439.0
+max_value = 10.0
+script = ExtResource("19_rh5o5")
+
+[node name="musicSlider" type="HSlider" parent="settingsStuff/generalStuff" unique_id=964401800]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 437.0
+offset_right = 1056.0
+offset_bottom = 477.0
+max_value = 10.0
+
+[node name="soundSlider" type="HSlider" parent="settingsStuff/generalStuff" unique_id=1330154876]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 476.0
+offset_right = 1056.0
+offset_bottom = 516.0
+max_value = 10.0
+
+[connection signal="pressed" from="menuContent/mainButtons/startButton" to="menuContent/mainButtons/startButton" method="_on_pressed"]
+[connection signal="pressed" from="menuContent/mainButtons/settingsButton" to="menuContent/mainButtons/settingsButton" method="_on_pressed"]
+[connection signal="pressed" from="menuContent/mainButtons/exitButton" to="menuContent/mainButtons/exitButton" method="_on_pressed"]
+[connection signal="item_selected" from="settingsStuff/generalStuff/windowMode" to="settingsStuff/generalStuff/windowMode" method="_on_item_selected"]
+[connection signal="item_selected" from="settingsStuff/generalStuff/resolution" to="settingsStuff/generalStuff/resolution" method="_on_item_selected"]
+[connection signal="value_changed" from="settingsStuff/generalStuff/masterSlider" to="settingsStuff/generalStuff/masterSlider" method="_on_value_changed"]

@@ -1,6 +1,7 @@
 class_name SpeedShoes
 extends Sprite2D
 
+@onready var audioPlayer: AudioStreamPlayer2D = $audioPlayer
 @onready var player: CharacterBody2D = get_parent().get_node("Body")
 @onready var detectBox: Area2D = $detectBox
 @onready var shapeBox: CollisionShape2D = detectBox.get_node("Shape")
@@ -22,15 +23,16 @@ func _on_detect_box_body_entered(body: CharacterBody2D) -> void:
 			player.speed = player.speed + 100
 			print("SPEED BOOST OBTAINED")
 			IsObtained = true
+			audioPlayer.play()
+			speedDur.visible = true
 			scale = Vector2(3, 3)
 			await get_tree().create_timer(0.02).timeout
 			scale = Vector2(2, 2)
 			await get_tree().create_timer(0.02).timeout
 			scale = Vector2(1, 1)
 			await get_tree().create_timer(0.02).timeout
-			self.visible = false
 			shapeBox.disabled = true
-			speedDur.visible = true
+			self.visible = false
 			timer.start()
 		pass
 	pass

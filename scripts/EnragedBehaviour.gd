@@ -3,6 +3,7 @@ extends AnimatedSprite2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var bullet = bullet_scene.instantiate()
+@onready var audioPlayer: AudioStreamPlayer2D = $audioPlayer
 @onready var player: CharacterBody2D = get_parent().get_node("Body")
 @onready var hitbox: Area2D = $hitbox
 @onready var detectionRange: Area2D = $detectionRange
@@ -48,12 +49,13 @@ func _on_shot_area_area_entered(area: Area2D) -> void:
 		IsKilled = true
 		flash()
 		Engine.time_scale = 0.2
+		audioPlayer.play()
 		await get_tree().create_timer(0.02).timeout
 		Engine.time_scale = 1.0
 		playerDetected = false
 		scoreSystem.Combo = scoreSystem.Combo + 1
 		scoreSystem.Score = scoreSystem.Score + 150 * 2 / scoreSystem.Combo
-		scoreSystem.on_combo_increase(scoreSystem.Combo/10)
+		scoreSystem.on_combo_increase(scoreSystem.Combo/20)
 		timer.stop()
 		timer.start()
 	pass
