@@ -1,4 +1,4 @@
-class_name SettingsButton
+class_name BackButton
 extends TextureButton
 
 @onready var settingsMenu: Control = get_parent().get_parent().get_parent().get_node("settingsStuff")

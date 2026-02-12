@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dmfy2dxexbu6n"]
 
 [ext_resource type="Texture2D" uid="uid://b0ja4cmhq8t8c" path="res://assets/bg/bg1.png" id="1_3jj3l"]
-[ext_resource type="Script" uid="uid://88qavc5bm5ox" path="res://scripts/menuScripts/autoloadScript.gd" id="1_ye3oh"]
 [ext_resource type="Texture2D" uid="uid://jpd5dpldluh" path="res://assets/bg/bg2.png" id="2_tt55a"]
 [ext_resource type="Texture2D" uid="uid://si4xlb6agd8b" path="res://assets/logo.png" id="3_tt55a"]
 [ext_resource type="Script" uid="uid://bt25vhuts2k58" path="res://scripts/menuScripts/logoMovement.gd" id="4_rpvs4"]
@@ -18,7 +17,6 @@
 [ext_resource type="Script" uid="uid://cminvr723hpf1" path="res://scripts/menuScripts/settings_button.gd" id="13_y7yat"]
 [ext_resource type="Script" uid="uid://bwrqcsdwoxtpb" path="res://scripts/menuScripts/exit_button.gd" id="14_ybki2"]
 [ext_resource type="Script" uid="uid://pl47dbgvhpb" path="res://scripts/menuScripts/windowSetting.gd" id="17_t3dwt"]
-[ext_resource type="Script" uid="uid://cugsqgnfpgnb5" path="res://scripts/menuScripts/settingsStuff.gd" id="17_y40t6"]
 [ext_resource type="Script" uid="uid://cng2brodh04ne" path="res://scripts/menuScripts/resolutionScale.gd" id="18_anfsg"]
 [ext_resource type="Script" uid="uid://ddxvvx0by1l3f" path="res://scripts/menuScripts/fpsSetting.gd" id="19_j4xi6"]
 [ext_resource type="Script" uid="uid://cdmcqn03mwfpb" path="res://scripts/menuScripts/master_slider.gd" id="19_rh5o5"]
@@ -29,7 +27,6 @@
 [ext_resource type="Script" uid="uid://b5qescjgk77mn" path="res://scripts/menuScripts/back_button.gd" id="25_c2bwn"]
 
 [node name="Node2D" type="Node2D" unique_id=296250477]
-script = ExtResource("1_ye3oh")
 
 [node name="Bg1" type="Sprite2D" parent="." unique_id=960132052]
 texture_repeat = 2
@@ -68,7 +65,7 @@ vertical_alignment = 1
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=916241552]
 stream = ExtResource("6_v6ms7")
-volume_db = -10.0
+volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
@@ -123,7 +120,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("17_y40t6")
 
 [node name="settingsBG" type="ColorRect" parent="settingsStuff" unique_id=891135552]
 layout_mode = 0
@@ -152,6 +148,7 @@ theme_override_fonts/font = ExtResource("4_t7v6v")
 text = "Input"
 
 [node name="generalStuff" type="Control" parent="settingsStuff" unique_id=1521490732]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -255,7 +252,6 @@ offset_top = 399.0
 offset_right = 1056.0
 offset_bottom = 439.0
 max_value = 10.0
-value = 5.0
 script = ExtResource("19_rh5o5")
 
 [node name="musicSlider" type="HSlider" parent="settingsStuff/generalStuff" unique_id=964401800]
@@ -265,7 +261,6 @@ offset_top = 437.0
 offset_right = 1056.0
 offset_bottom = 477.0
 max_value = 10.0
-value = 5.0
 script = ExtResource("20_jykvo")
 
 [node name="soundSlider" type="HSlider" parent="settingsStuff/generalStuff" unique_id=1330154876]
@@ -275,7 +270,6 @@ offset_top = 476.0
 offset_right = 1056.0
 offset_bottom = 516.0
 max_value = 10.0
-value = 5.0
 script = ExtResource("21_7132l")
 
 [node name="pixelSoft" type="CheckBox" parent="settingsStuff/generalStuff" unique_id=2121902782]
@@ -441,8 +435,6 @@ script = ExtResource("25_c2bwn")
 [connection signal="pressed" from="menuContent/mainButtons/startButton" to="menuContent/mainButtons/startButton" method="_on_pressed"]
 [connection signal="pressed" from="menuContent/mainButtons/settingsButton" to="menuContent/mainButtons/settingsButton" method="_on_pressed"]
 [connection signal="pressed" from="menuContent/mainButtons/exitButton" to="menuContent/mainButtons/exitButton" method="_on_pressed"]
-[connection signal="pressed" from="settingsStuff/general" to="settingsStuff" method="_on_general_pressed"]
-[connection signal="pressed" from="settingsStuff/input" to="settingsStuff" method="_on_input_pressed"]
 [connection signal="item_selected" from="settingsStuff/generalStuff/windowMode" to="settingsStuff/generalStuff/windowMode" method="_on_item_selected"]
 [connection signal="item_selected" from="settingsStuff/generalStuff/resolution" to="settingsStuff/generalStuff/resolution" method="_on_item_selected"]
 [connection signal="item_selected" from="settingsStuff/generalStuff/fpsSetting" to="settingsStuff/generalStuff/fpsSetting" method="_on_item_selected"]

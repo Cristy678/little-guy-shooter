@@ -473,15 +473,16 @@ limit_bottom = 2372
 
 [node name="audioLoser" type="AudioStreamPlayer2D" parent="Body" unique_id=157362729]
 stream = ExtResource("6_rdeg0")
-volume_db = 24.0
 bus = &"SFX"
 
 [node name="audioShoot" type="AudioStreamPlayer2D" parent="Body" unique_id=221752568]
 stream = ExtResource("7_reluu")
+volume_db = -6.0
 bus = &"SFX"
 
 [node name="audioReload" type="AudioStreamPlayer2D" parent="Body" unique_id=1324249750]
 stream = ExtResource("8_csshy")
+volume_db = -6.0
 bus = &"SFX"
 
 [node name="Loopinggrass" type="Sprite2D" parent="." unique_id=806789057]
@@ -674,13 +675,13 @@ one_shot = true
 
 [node name="audioCombo" type="AudioStreamPlayer2D" parent="ScoreControl" unique_id=1514396202]
 stream = ExtResource("16_ocmmj")
-volume_db = 12.0
+volume_db = -2.0
 max_distance = 1000000.0
 bus = &"SFX"
 
 [node name="audioLost" type="AudioStreamPlayer2D" parent="ScoreControl" unique_id=690608219]
 stream = ExtResource("17_vwj6b")
-volume_db = 12.0
+volume_db = -2.0
 max_distance = 1000000.0
 bus = &"SFX"
 
@@ -804,7 +805,7 @@ position = Vector2(739, 142)
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=426743079]
 position = Vector2(576, 324)
 stream = ExtResource("26_reluu")
-volume_db = -6.0
+volume_db = -20.0
 autoplay = true
 max_distance = 10000000000.0
 bus = &"Music"

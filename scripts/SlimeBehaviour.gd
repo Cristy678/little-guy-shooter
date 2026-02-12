@@ -46,6 +46,10 @@ func _on_detection_range_body_exited(body: CharacterBody2D) -> void:
 func _on_shot_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		self.play("DEATHANIM01")
+		if IsKilled == false:
+			scoreSystem.Combo = scoreSystem.Combo + 1
+			scoreSystem.Score = scoreSystem.Score + 75 * scoreSystem.Combo / 10
+			scoreSystem.on_combo_increase(scoreSystem.Combo/20)
 		IsKilled = true
 		flash()
 		Engine.time_scale = 0.2
@@ -53,9 +57,6 @@ func _on_shot_area_area_entered(area: Area2D) -> void:
 		await get_tree().create_timer(0.02).timeout
 		Engine.time_scale = 1.0
 		playerDetected = false
-		scoreSystem.Combo = scoreSystem.Combo + 1
-		scoreSystem.Score = scoreSystem.Score + 75 * 2 / scoreSystem.Combo
-		scoreSystem.on_combo_increase(scoreSystem.Combo/20)
 		timer.stop()
 		timer.start()
 	pass

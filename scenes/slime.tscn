@@ -38,7 +38,7 @@ shape = SubResource("CircleShape2D_pjw23")
 
 [node name="audioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1096793442]
 stream = ExtResource("3_n6pvg")
-volume_db = -5.0
+volume_db = -8.0
 bus = &"SFX"
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
