@@ -6,6 +6,10 @@ var alreadyCounted = 0
 @onready var player: CharacterBody2D = get_parent().get_node("Body")
 @onready var detectBox: Area2D = $detectBox
 @onready var shapeBox: CollisionShape2D = detectBox.get_node("Shape")
+@onready var performanceManager: Node2D = get_parent()
+
+func _ready() -> void:
+	performanceManager.currentItems = performanceManager.currentItems + 1
 
 func _process(_delta: float) -> void:
 	position.y += sin(Time.get_ticks_msec() / 200.0) * 0.075
@@ -27,5 +31,6 @@ func _on_detect_box_body_entered(body: CharacterBody2D) -> void:
 			shapeBox.disabled = true
 			self.visible = false
 			queue_free()
+			performanceManager.currentItems = performanceManager.currentItems - 1
 		pass
 	pass

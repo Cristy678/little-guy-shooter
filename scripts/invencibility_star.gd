@@ -7,9 +7,11 @@ extends Sprite2D
 @onready var shapeBox: CollisionShape2D = detectBox.get_node("Shape")
 @onready var speedDur: TextureProgressBar = get_parent().get_node("UIscreen/StarDuration")
 @onready var timer: Timer = $timer
+@onready var performanceManager: Node2D = get_parent()
 var IsObtained = false
 
 func _ready() -> void:
+	performanceManager.currentItems = performanceManager.currentItems + 1
 	speedDur.visible = false
 
 func _process(_delta: float) -> void:
@@ -33,6 +35,7 @@ func _on_detect_box_body_entered(body: CharacterBody2D) -> void:
 			await get_tree().create_timer(0.02).timeout
 			shapeBox.disabled = true
 			self.visible = false
+			performanceManager.currentItems = performanceManager.currentItems - 1
 			timer.start()
 		pass
 	pass

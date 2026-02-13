@@ -13,4 +13,9 @@ wait_time = 2.0
 scale = Vector2(4, 4)
 texture = ExtResource("2_3kdfa")
 
+[node name="apparitionSignaler" type="VisibleOnScreenNotifier2D" parent="." unique_id=1970043274]
+rect = Rect2(-20, -20, 40, 40)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="apparitionSignaler" to="." method="_on_apparition_signaler_screen_entered"]
+[connection signal="screen_exited" from="apparitionSignaler" to="." method="_on_apparition_signaler_screen_exited"]

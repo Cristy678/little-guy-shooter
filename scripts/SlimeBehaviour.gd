@@ -9,10 +9,14 @@ var bullet = bullet_scene.instantiate()
 @onready var detectionRange: Area2D = $detectionRange
 @onready var scoreSystem: Node2D = get_parent().get_node("ScoreControl")
 @onready var timer: Timer = scoreSystem.get_node("Timer")
+@onready var performanceManager: Node2D = get_parent()
 
-const follow_speed = 0.001
+const follow_speed = 0.00222222222222222222
 var playerDetected = false
 var IsKilled = false
+
+func _ready() -> void:
+	performanceManager.currentEnemies = performanceManager.currentEnemies + 1
 
 func _process(_delta: float) -> void:
 	if playerDetected == true:
@@ -70,5 +74,12 @@ func flash():
 
 func _on_animation_finished() -> void:
 	queue_free()
+	performanceManager.currentEnemies = performanceManager.currentEnemies - 1
 	print("DEAD")
 	pass
+
+func _on_apparition_signaler_screen_exited() -> void:
+	set_process(false)
+
+func _on_apparition_signaler_screen_entered() -> void:
+	set_process(true)

@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://cjtli8xpolsol" path="res://assets/hud/progressBarPixelLong.png" id="11_2ilni"]
 [ext_resource type="Texture2D" uid="uid://b8in5x2wfv4qq" path="res://assets/hud/scoreCounter.png" id="11_osidk"]
 [ext_resource type="Script" uid="uid://cecif1ryot06j" path="res://scripts/score_control.gd" id="12_osidk"]
+[ext_resource type="PackedScene" uid="uid://dvjryilc73nt4" path="res://scenes/ammo_box.tscn" id="12_rlvb3"]
 [ext_resource type="Texture2D" uid="uid://b2bu1asumpchn" path="res://assets/hud/progressBarItemLong.png" id="12_x2tju"]
 [ext_resource type="Texture2D" uid="uid://bo5csgr0dwaiy" path="res://assets/items/item2.png" id="13_wm6m6"]
+[ext_resource type="PackedScene" uid="uid://dmtd3qsjsxguy" path="res://scenes/speed_shoes.tscn" id="14_k63md"]
 [ext_resource type="Texture2D" uid="uid://ojgxv7708ptp" path="res://assets/items/item3.png" id="14_ocmmj"]
+[ext_resource type="PackedScene" uid="uid://63hb632qgp05" path="res://scenes/invencibility_start.tscn" id="15_fn4oh"]
 [ext_resource type="PackedScene" uid="uid://cde1p1osusbsf" path="res://scenes/item_generator.tscn" id="16_j30dx"]
 [ext_resource type="AudioStream" uid="uid://cp6t16xv5x815" path="res://sounds/mixkit-video-game-retro-click-237.wav" id="16_ocmmj"]
 [ext_resource type="AudioStream" uid="uid://dhv83besajkn2" path="res://sounds/mixkit-video-game-mystery-alert-234.wav" id="17_vwj6b"]
@@ -439,7 +442,8 @@ cache/0/32/0/glyphs/97/texture_idx = 0
 
 [node name="playground" type="Node2D" unique_id=757353979]
 script = ExtResource("1_2etec")
-maxEnemies = 56
+maxEnemies = 48
+maxItems = 6
 
 [node name="DirtpatchLarge" type="Sprite2D" parent="." unique_id=1950143156]
 position = Vector2(576, 346)
@@ -807,6 +811,15 @@ position = Vector2(2377, -542)
 
 [node name="ItemGenerator4" parent="." unique_id=1821571990 instance=ExtResource("16_j30dx")]
 position = Vector2(-9, 2149)
+
+[node name="ammoBox" parent="." unique_id=864849094 instance=ExtResource("12_rlvb3")]
+position = Vector2(244, 303)
+
+[node name="speedShoes" parent="." unique_id=1420267310 instance=ExtResource("14_k63md")]
+position = Vector2(804, 470)
+
+[node name="invencibilityStar" parent="." unique_id=499253429 instance=ExtResource("15_fn4oh")]
+position = Vector2(739, 142)
 
 [node name="musicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=426743079]
 position = Vector2(576, 324)

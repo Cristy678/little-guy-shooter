@@ -40,8 +40,14 @@ stream = ExtResource("3_cmv1t")
 volume_db = -8.0
 bus = &"SFX"
 
+[node name="apparitionSignaler" type="VisibleOnScreenNotifier2D" parent="." unique_id=373627380]
+position = Vector2(-66, -66)
+rect = Rect2(62.5, 62.25, 7, 7.5)
+
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_entered" from="detectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="detectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="area_entered" from="shotArea" to="." method="_on_shot_area_area_entered"]
+[connection signal="screen_entered" from="apparitionSignaler" to="." method="_on_apparition_signaler_screen_entered"]
+[connection signal="screen_exited" from="apparitionSignaler" to="." method="_on_apparition_signaler_screen_exited"]

@@ -27,6 +27,8 @@
 [ext_resource type="Script" uid="uid://62x7hkww1a22" path="res://scripts/menuScripts/pixel_soft.gd" id="22_sqk3e"]
 [ext_resource type="Script" uid="uid://dtcgmukgga1ol" path="res://scripts/menuScripts/keybindRebinder.gd" id="24_6lrwc"]
 [ext_resource type="Script" uid="uid://b5qescjgk77mn" path="res://scripts/menuScripts/back_button.gd" id="25_c2bwn"]
+[ext_resource type="FontFile" uid="uid://bcu4104ihqus2" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="28_mxkah"]
+[ext_resource type="Script" uid="uid://5wqhlkrixnun" path="res://scripts/otherScripts/fps_count.gd" id="29_s2bf8"]
 
 [node name="Node2D" type="Node2D" unique_id=296250477]
 script = ExtResource("1_ye3oh")
@@ -437,6 +439,15 @@ theme_override_fonts/font = ExtResource("4_t7v6v")
 theme_override_font_sizes/font_size = 16
 text = "Back"
 script = ExtResource("25_c2bwn")
+
+[node name="fpsCount" type="Label" parent="." unique_id=1102980487]
+offset_left = 5.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.6313726)
+theme_override_fonts/font = ExtResource("28_mxkah")
+text = "FPSCOUNT"
+script = ExtResource("29_s2bf8")
 
 [connection signal="pressed" from="menuContent/mainButtons/startButton" to="menuContent/mainButtons/startButton" method="_on_pressed"]
 [connection signal="pressed" from="menuContent/mainButtons/settingsButton" to="menuContent/mainButtons/settingsButton" method="_on_pressed"]
