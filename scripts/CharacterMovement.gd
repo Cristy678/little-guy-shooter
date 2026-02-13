@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
-@export var hp = 100
-@export var ammo = 100
-@export var loadedammo = 0
-@export var speed = 320
+@export var hp := 100
+@export var ammo := 100
+@export var loadedammo := 0
+@export var speed := 320
 @export var invencible = false
 @export var playerDead = false
 @onready var animated_sprite: AnimatedSprite2D = $Player

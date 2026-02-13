@@ -1,9 +1,8 @@
 class_name score_control
 extends Node2D
 
-@export var Score = 0
-@export var Combo = 0
-@export var combo_grace := 0.5
+@export var Score := 0
+@export var Combo := 0
 @export var hasStarted = false
 @onready var audioCombo: AudioStreamPlayer2D = $audioCombo
 @onready var audioLost: AudioStreamPlayer2D = $audioLost

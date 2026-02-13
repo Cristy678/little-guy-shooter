@@ -3,7 +3,7 @@ extends Area2D
 
 @export var direction: Vector2
 @onready var signaler: VisibleOnScreenNotifier2D = $apparitionSignaler
-const SPEED = 30
+const SPEED := 30
 
 func _physics_process(_delta: float) -> void:
 	global_position += direction * SPEED
