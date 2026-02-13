@@ -78,16 +78,15 @@ autoplay = true
 bus = &"Music"
 
 [node name="menuContent" type="CenterContainer" parent="." unique_id=1335369942]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 360.0
-offset_top = 130.0
+offset_top = 180.0
 offset_right = 568.0
-offset_bottom = 322.0
+offset_bottom = 372.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -124,6 +123,7 @@ texture_focused = ExtResource("10_v7hj3")
 script = ExtResource("14_ybki2")
 
 [node name="settingsStuff" type="Control" parent="." unique_id=1103666929]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -466,6 +466,26 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.6313726)
 theme_override_fonts/font = ExtResource("28_mxkah")
 text = "FPSCOUNT"
 script = ExtResource("29_s2bf8")
+
+[node name="highscoreLabel" type="Label" parent="." unique_id=400592965]
+offset_left = 477.0
+offset_top = 53.0
+offset_right = 649.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+theme_override_font_sizes/font_size = 32
+text = "HIGHSCORE"
+
+[node name="hSCounter" type="Label" parent="." unique_id=1153000767]
+offset_left = 415.0
+offset_top = 85.0
+offset_right = 711.0
+offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("4_t7v6v")
+theme_override_font_sizes/font_size = 32
+text = "HIGHSCORE_COUNT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="menuContent/mainButtons/startButton" to="menuContent/mainButtons/startButton" method="_on_pressed"]
 [connection signal="pressed" from="menuContent/mainButtons/settingsButton" to="menuContent/mainButtons/settingsButton" method="_on_pressed"]

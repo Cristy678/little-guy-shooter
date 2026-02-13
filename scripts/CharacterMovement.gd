@@ -8,11 +8,14 @@ var bullet_scene = preload("res://scenes/bullet.tscn")
 @export var speed := 320
 @export var invencible = false
 @export var playerDead = false
+@export var alreadyDead = false
 @onready var animated_sprite: AnimatedSprite2D = $Player
 @onready var ammoHUD: Label = get_parent().get_node("UIscreen/AmmoHUD")
 @onready var loadammoHUD: Label = get_parent().get_node("UIscreen/LoadAmmoHUD")
 @onready var hpHUD: Label = get_parent().get_node("UIscreen/HpHUD")
 @onready var scoreSystem: Node2D = get_parent().get_node("ScoreControl")
+@onready var gameOver: Control = get_parent().get_node("UIscreen/gameOverScreen")
+@onready var highscoreCount: Label = gameOver.get_node("hSCount")
 @onready var gun: Sprite2D = $Player/Gun01
 @onready var audioLost: AudioStreamPlayer2D = $audioLoser
 @onready var audioShoot: AudioStreamPlayer2D = $audioShoot
@@ -22,6 +25,7 @@ func _ready() -> void:
 	ammoHUD.text = str(ammo)
 	loadammoHUD.text = str(loadedammo)
 	hpHUD.text = str(hp)
+	gameOver.visible = false
 	
 func _physics_process(_delta: float) -> void:
 	hpHUD.text = str(hp)
@@ -84,10 +88,16 @@ func hit():
 	pass
 
 func _on_player_animation_finished() -> void:
-	self.visible = false
-	print("PLAYER KILLED")
-	await get_tree().create_timer(0.5).timeout
-	get_tree().quit()
+	if alreadyDead == false:
+		self.visible = false
+		print("PLAYER KILLED")
+		await get_tree().create_timer(0.5).timeout
+		HighscoreLoader.loadHighscore()
+		if scoreSystem.Score > HighscoreLoader.highscore:
+			HighscoreLoader.saveHighscore(scoreSystem.Score)
+		highscoreCount.text = str(HighscoreLoader.loadHighscore())
+		gameOver.visible = true
+		alreadyDead = true
 	pass
 
 func audioPlay_onLost():

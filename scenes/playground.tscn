@@ -26,6 +26,10 @@
 [ext_resource type="Script" uid="uid://5wqhlkrixnun" path="res://scripts/otherScripts/fps_count.gd" id="18_csshy"]
 [ext_resource type="Script" uid="uid://6dldfifrm5ct" path="res://scripts/otherScripts/temp_en_count.gd" id="20_34hvl"]
 [ext_resource type="Script" uid="uid://cn46aybebyjwi" path="res://scripts/otherScripts/temp_it_count.gd" id="21_1fo14"]
+[ext_resource type="FontFile" uid="uid://dxpq7p446okvj" path="res://fonts/Pixellari.ttf" id="22_2etec"]
+[ext_resource type="Script" uid="uid://bljq2cu3m0c7f" path="res://scripts/menuScripts/exitText_button.gd" id="23_xfos3"]
+[ext_resource type="Script" uid="uid://cplvi6dwkhvau" path="res://scripts/menuScripts/mainMenuBack_button.gd" id="24_xfos3"]
+[ext_resource type="Script" uid="uid://cq0xmi7dcm4wj" path="res://scripts/menuScripts/retry_button.gd" id="25_jwxgv"]
 [ext_resource type="AudioStream" uid="uid://dmrjj88j6b2e1" path="res://music/Cyborg Ninja.mp3" id="26_reluu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hddm4"]
@@ -439,7 +443,7 @@ cache/0/32/0/glyphs/97/texture_idx = 0
 
 [node name="playground" type="Node2D" unique_id=757353979]
 script = ExtResource("1_2etec")
-maxEnemies = 56
+maxEnemies = 64
 
 [node name="DirtpatchLarge" type="Sprite2D" parent="." unique_id=1950143156]
 position = Vector2(576, 346)
@@ -695,6 +699,85 @@ offset_bottom = 485.0
 text = "ITEMCOUNT"
 script = ExtResource("21_1fo14")
 
+[node name="gameOverScreen" type="Control" parent="UIscreen" unique_id=1258229044]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="gOBG" type="ColorRect" parent="UIscreen/gameOverScreen" unique_id=1358503399]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 132.0
+offset_right = 849.0
+offset_bottom = 506.0
+color = Color(0, 0, 0, 0.62352943)
+
+[node name="gOLabel" type="Label" parent="UIscreen/gameOverScreen" unique_id=1469644162]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 154.0
+offset_right = 707.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("22_2etec")
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+
+[node name="hSLabel" type="Label" parent="UIscreen/gameOverScreen" unique_id=1471851505]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 264.0
+offset_right = 652.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("22_2etec")
+theme_override_font_sizes/font_size = 32
+text = "Highscore:"
+
+[node name="hSCount" type="Label" parent="UIscreen/gameOverScreen" unique_id=1643807197]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 303.0
+offset_right = 800.0
+offset_bottom = 351.0
+theme_override_fonts/font = ExtResource("22_2etec")
+theme_override_font_sizes/font_size = 48
+text = "HIGHSCORE_COUNT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exitButton" type="Button" parent="UIscreen/gameOverScreen" unique_id=366945175]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 438.0
+offset_right = 818.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("22_2etec")
+theme_override_font_sizes/font_size = 32
+text = "Exit Game"
+script = ExtResource("23_xfos3")
+
+[node name="mainButton" type="Button" parent="UIscreen/gameOverScreen" unique_id=1835414409]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 438.0
+offset_right = 491.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("22_2etec")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+script = ExtResource("24_xfos3")
+
+[node name="retryButton" type="Button" parent="UIscreen/gameOverScreen" unique_id=74296861]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 438.0
+offset_right = 655.0
+offset_bottom = 490.0
+theme_override_fonts/font = ExtResource("22_2etec")
+theme_override_font_sizes/font_size = 32
+text = "Retry"
+script = ExtResource("25_jwxgv")
+
 [node name="ScoreControl" type="Node2D" parent="." unique_id=1508096873]
 position = Vector2(576, 23)
 script = ExtResource("12_osidk")
@@ -817,4 +900,7 @@ max_distance = 10000000000.0
 bus = &"Music"
 
 [connection signal="animation_finished" from="Body/Player" to="Body" method="_on_player_animation_finished"]
+[connection signal="pressed" from="UIscreen/gameOverScreen/exitButton" to="UIscreen/gameOverScreen/exitButton" method="_on_pressed"]
+[connection signal="pressed" from="UIscreen/gameOverScreen/mainButton" to="UIscreen/gameOverScreen/mainButton" method="_on_pressed"]
+[connection signal="pressed" from="UIscreen/gameOverScreen/retryButton" to="UIscreen/gameOverScreen/retryButton" method="_on_pressed"]
 [connection signal="timeout" from="ScoreControl/Timer" to="ScoreControl" method="_on_timer_timeout"]

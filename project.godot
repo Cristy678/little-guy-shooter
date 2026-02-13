@@ -15,7 +15,7 @@ config/description="FIRST PUBLIC BUILD OF LGS"
 config/version="Indev.B.3.7.2"
 run/main_scene="uid://dmfy2dxexbu6n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://jvpiaoi6o407"
 
 [audio]
 
@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://bson5sw4j44hm"
 [autoload]
 
 SettingsManager="*uid://c212w73qkv66o"
+HighscoreLoader="*uid://ukmm80c6n7c0"
 
 [buses]
 
