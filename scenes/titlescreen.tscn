@@ -29,6 +29,9 @@
 [ext_resource type="Script" uid="uid://b5qescjgk77mn" path="res://scripts/menuScripts/back_button.gd" id="25_c2bwn"]
 [ext_resource type="FontFile" uid="uid://bcu4104ihqus2" path="res://fonts/PixelifySans-VariableFont_wght.ttf" id="28_mxkah"]
 [ext_resource type="Script" uid="uid://5wqhlkrixnun" path="res://scripts/otherScripts/fps_count.gd" id="29_s2bf8"]
+[ext_resource type="Texture2D" uid="uid://bc3c5jcu6m5r6" path="res://assets/hud/soundIcons1.png" id="30_wks6m"]
+[ext_resource type="Texture2D" uid="uid://c60735eb667tr" path="res://assets/hud/soundIcons2.png" id="31_53fgs"]
+[ext_resource type="Texture2D" uid="uid://ckdhxin1se5n8" path="res://assets/hud/soundIcons3.png" id="32_r23s4"]
 
 [node name="Node2D" type="Node2D" unique_id=296250477]
 script = ExtResource("1_ye3oh")
@@ -290,6 +293,21 @@ theme_override_fonts/font = ExtResource("4_t7v6v")
 theme_override_font_sizes/font_size = 32
 text = "Pixel Softening"
 script = ExtResource("22_sqk3e")
+
+[node name="SoundIcons1" type="Sprite2D" parent="settingsStuff/generalStuff" unique_id=213126396]
+position = Vector2(80, 419)
+scale = Vector2(2, 2)
+texture = ExtResource("30_wks6m")
+
+[node name="SoundIcons2" type="Sprite2D" parent="settingsStuff/generalStuff" unique_id=1118631551]
+position = Vector2(80, 496)
+scale = Vector2(2, 2)
+texture = ExtResource("31_53fgs")
+
+[node name="SoundIcons3" type="Sprite2D" parent="settingsStuff/generalStuff" unique_id=749724279]
+position = Vector2(80, 458)
+scale = Vector2(2, 2)
+texture = ExtResource("32_r23s4")
 
 [node name="inputStuff" type="Control" parent="settingsStuff" unique_id=866936263]
 visible = false
